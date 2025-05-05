@@ -9,7 +9,7 @@ public interface ClienteService {
     Cliente save(Cliente cliente);
     Cliente update(Cliente cliente);
     Optional <Cliente> findById(Long id);
-    List<Cliente> findAll();
+    List<Cliente>  findAll();
     void delete(Long id);
 
 }

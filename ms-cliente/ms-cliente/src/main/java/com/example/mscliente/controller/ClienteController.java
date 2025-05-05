@@ -1,6 +1,7 @@
 package com.example.mscliente.controller;
 
 import com.example.mscliente.entity.Cliente;
+import com.example.mscliente.repository.ClienteRepository;
 import com.example.mscliente.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +15,13 @@ import java.util.List;
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
+    @Autowired
+    private ClienteRepository clienteRepository;
 
     @GetMapping()
     public ResponseEntity<List<Cliente>> list() {
-        return ResponseEntity.ok().body(clienteService.findAll());
+        List<Cliente> clientes = clienteRepository.findAll();
+        return ResponseEntity.ok(clientes);
     }
     @PostMapping()
     public ResponseEntity<Cliente> save(@RequestBody Cliente cliente){
