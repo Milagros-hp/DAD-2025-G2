@@ -28,12 +28,12 @@ public class PedidoSeeder implements CommandLineRunner {
             pedido1.setClienteId(1);
 
             PedidoDetalle detalle1 = new PedidoDetalle();
-            detalle1.setProductoId(101);
+            detalle1.setProductoId(1);
             detalle1.setCantidad(2.0);
             detalle1.setPrecio(1200.0);
 
             PedidoDetalle detalle2 = new PedidoDetalle();
-            detalle2.setProductoId(102);
+            detalle2.setProductoId(2);
             detalle2.setCantidad(1.0);
             detalle2.setPrecio(850.0);
 
@@ -47,7 +47,7 @@ public class PedidoSeeder implements CommandLineRunner {
             pedido2.setClienteId(2);
 
             PedidoDetalle detalle3 = new PedidoDetalle();
-            detalle3.setProductoId(201);
+            detalle3.setProductoId(4);
             detalle3.setCantidad(3.0);
             detalle3.setPrecio(150.0);
 

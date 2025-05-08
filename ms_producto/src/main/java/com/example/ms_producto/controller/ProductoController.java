@@ -3,6 +3,7 @@ package com.example.ms_producto.controller;
 import com.example.ms_producto.entity.Producto;
 import com.example.ms_producto.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,10 +23,13 @@ public class ProductoController {
     }
 
 
-    @RequestMapping("/id")
-    public Producto buscar(Integer id) {
-        return productoService.listar().get(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<Producto> buscarProductoPorId(@PathVariable Integer id) {
+        return productoService.buscar(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
 
     @PostMapping
     public Producto guardar (@RequestBody Producto categoria) {
